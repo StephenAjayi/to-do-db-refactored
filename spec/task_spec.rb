@@ -17,4 +17,10 @@ describe(Task) do
       expect(test_task.description()).to(eq("Wash the car."))
     end
   end
+
+  describe('.all') do 
+    it('returns all tasks that have been saved, starts empty at first') do
+      expect(Task.all()).to(eq([]))
+    end
+  end
 end
