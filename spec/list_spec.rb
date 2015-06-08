@@ -17,4 +17,9 @@ describe(List) do
       expect(test_list.name()).to(eq("Chores"))
     end
   end
+  describe('.all') do
+    it('returns an array of all saved instances of list, it is empty at first') do
+      expect(Task.all()).to(eq([]))
+    end
+  end
 end
