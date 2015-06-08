@@ -19,4 +19,8 @@ class Task
   define_method(:save) do
     DB.exec("INSERT INTO tasks (description) VALUES ('#{@description}');")
   end
+
+  define_method(:==) do |another_task|
+    self.description.==(another_task.description)
+  end
 end

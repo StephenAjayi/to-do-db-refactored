@@ -28,7 +28,14 @@ describe(Task) do
     it('save an intance of task to an array') do
       test_task = Task.new(:description => "Mow the lawn.")
       test_task.save()
-      expect(Task.all()).to(eq("test_task"))
+      expect(Task.all()).to(eq([test_task]))
+    end
+  end
+  describe('#==') do
+    it('returns two obects as equal if they have the same description ') do
+      test_task = Task.new(:description => "Milk the cow.")
+      test_task2 = Task.new(:description => "Milk the cow.")
+      expect(test_task.==(test_task2)).to(eq(true))
     end
   end
 end
