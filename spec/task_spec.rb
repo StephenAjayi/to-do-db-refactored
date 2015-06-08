@@ -18,9 +18,17 @@ describe(Task) do
     end
   end
 
-  describe('.all') do 
+  describe('.all') do
     it('returns all tasks that have been saved, starts empty at first') do
       expect(Task.all()).to(eq([]))
+    end
+  end
+
+  describe('#save') do
+    it('save an intance of task to an array') do
+      test_task = Task.new(:description => "Mow the lawn.")
+      test_task.save()
+      expect(Task.all()).to(eq("test_task"))
     end
   end
 end

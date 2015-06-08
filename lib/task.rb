@@ -10,9 +10,13 @@ class Task
     tasks = []
     found_tasks.each() do |found_task|
       description = found_task.fetch("description")
-      id = found_task.fetch("id")
+      id = found_task.fetch("id").to_i()
       tasks.push(Task.new(:description => description, :id => id))
     end
     tasks
+  end
+
+  define_method(:save) do
+    DB.exec("INSERT INTO tasks (description) VALUES ('#{@description}');")
   end
 end
